@@ -13,7 +13,7 @@
     "outDir": "dist/",
     "preserveConstEnums": true,
     "removeComments": false,
-    "rootDir": "package/taro-cli/src",
+    "rootDir": "./src",
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es2015",
@@ -21,9 +21,9 @@
     "types": ["node", "jest"]
   },
   "include": [
-    "package/taro-cli/src"
+    "./src"
   ],
   "exclude": [
-    "package/taro-cli/src/test"
+    "./src/__tests__"
   ]
 }
