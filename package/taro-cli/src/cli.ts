@@ -28,11 +28,11 @@ export default class CLI {
     const _ = args._;
     const command = _[0];
     if (command) {
-      const kernel = new Kernel({
-        appPath: this.appPath,
-        presets: [path.resolve(__dirname, ".", "presets", "index.js")],
-      });
-      console.log(kernel);
+      // const kernel = new Kernel({
+      //   appPath: this.appPath,
+      //   presets: [path.resolve(__dirname, ".", "presets", "index.js")],
+      // });
+      
     }
   }
 }
