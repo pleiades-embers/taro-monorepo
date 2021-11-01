@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Taro Helper",
   "main": "index.js",
-  "types":"types/index.d.ts",
+  "types": "types/index.d.ts",
+  "license": "MIT",
   "scripts": {
-    "build":"run-s clean prod",
+    "build": "run-s clean prod",
     "clean": "rimraf dist",
     "prod": "tsc",
     "dev": "tsc -w"
@@ -14,5 +15,8 @@
     "index.js",
     "dist",
     "types"
-  ]
+  ],
+  "dependencies": {
+    "fs-extra": "^10.0.0"
+  }
 }

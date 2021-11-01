@@ -1,5 +1,5 @@
 import { IProjectConfig } from "@tarojs/taro/types/compile";
-
+import {resolveScriptPath} from "@tarojs/helper"
 
 
 interface IConfigOptions {
@@ -17,7 +17,7 @@ export default class Config {
   }
 
   init(){
-    // this.configPat
+    this.configPath=resolveScriptPath(this.appPath)
   }
 
 }
