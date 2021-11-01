@@ -29,7 +29,21 @@ export default class Kernel extends EventEmitter {
     this.initHelper();
   }
   init() {
-    console.log(1111);
+    this.initConfig()
+    this.initPaths()
+    this.initPresetsAndPlugins()
+  }
+
+  initConfig(){
+
+  }
+
+  initPaths(){
+
+  }
+
+  initPresetsAndPlugins(){
+
   }
 
   initHelper() {
