@@ -1,0 +1,19 @@
+{
+  "name": "@tarojs/cli",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts":{
+    "test": "cross-env NODE_ENV=test jest"
+  },
+  "files":[
+    "bin",
+    "__tests__",
+    "scripts"
+  ],
+  "devDependencies": {
+    "@tarojs/service": "^3.3.12"
+  }
+}

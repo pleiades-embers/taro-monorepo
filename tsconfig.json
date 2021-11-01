@@ -1,29 +1,23 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "baseUrl": ".",
-    "experimentalDecorators": true,
-    "lib": ["esnext", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "outDir": "dist/",
-    "preserveConstEnums": true,
+    "target": "ES2017",
+    "module": "ESNext",
     "removeComments": false,
-    "rootDir": "./src",
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "target": "es2015",
-    "traceResolution": false,
-    "types": ["node", "jest"]
+    "preserveConstEnums": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "paths": {}
   },
-  "include": [
-    "./src"
-  ],
+  "include": ["packages/global.d.ts", "packages/*/src"],
   "exclude": [
-    "src/test"
-  ]
+    "__tests__",
+    "node_modules",
+    "dist",
+    "tests",
+    "jest",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "compileOnSave": false
 }

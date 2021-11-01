@@ -1,31 +1,30 @@
 {
-  "name": "jest-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "jest.config.js",
-  "directories": {
-    "test": "test"
-  },
+  "name": "taro",
+  "private": true,
+  "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest"
+    "bootstrap": "npm-run-all clear-all bootstrap:lerna",
+    "clear-all": "rimraf package-lock.json packages/*/node_modules packages/*/package-lock.json packages/*/yarn.lock",
+    "bootstrap:lerna": "lerna bootstrap"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
-    "@tarojs/service": "^3.3.12",
     "@types/jest": "^27.0.2",
     "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.6",
     "babel-jest": "^27.3.1",
+    "cross-env": "^7.0.3",
     "jest": "^27.3.1",
+    "lerna": "^4.0.0",
     "mocha": "^9.1.3",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "@tarojs/taro": "^3.3.12",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
   }
 }
