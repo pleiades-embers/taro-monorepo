@@ -1,9 +1,9 @@
-import {Kernel} from "../index";
+import Config  from "../config";
 
 const APP_PATH = "/a/b/c";
 
-describe("kernel", () => {
-  let kernel;
+describe("config", () => {
+  let config;
   let options: any = {
     appPath: APP_PATH,
   };
@@ -13,9 +13,9 @@ describe("kernel", () => {
    */
 
   beforeAll(() => {
-    kernel = new Kernel(options);
-    console.log(kernel);
-    kernel.init();
+    config = new Config(options);
+    console.log(config);
+    config.init();
   });
 
   describe("init", () => {
