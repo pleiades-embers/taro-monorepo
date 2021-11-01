@@ -32,7 +32,6 @@ export default class CLI {
       //   appPath: this.appPath,
       //   presets: [path.resolve(__dirname, ".", "presets", "index.js")],
       // });
-      
     }
   }
 }

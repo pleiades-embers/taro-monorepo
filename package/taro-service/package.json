@@ -8,9 +8,13 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "clean": "rimraf dist",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "prod": "tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {}
 }
