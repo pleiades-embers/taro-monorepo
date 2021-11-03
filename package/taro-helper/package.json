@@ -17,6 +17,7 @@
     "types"
   ],
   "dependencies": {
+    "@babel/preset-env": "^7.16.0",
     "fs-extra": "^10.0.0"
   }
 }
