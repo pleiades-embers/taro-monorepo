@@ -1,4 +1,4 @@
-import {Kernel} from "../index";
+import { Kernel } from "../index";
 
 const APP_PATH = "/a/b/c";
 
@@ -9,7 +9,7 @@ describe("kernel", () => {
   };
 
   /**
-   * 
+   *
    */
 
   beforeAll(() => {
@@ -19,8 +19,8 @@ describe("kernel", () => {
   });
 
   describe("init", () => {
-      it('',()=>{
-        console.log("这里debugger 一下")
-      })
+    it("", () => {
+      console.log("这里debugger 一下");
+    });
   });
 });
