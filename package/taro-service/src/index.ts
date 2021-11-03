@@ -1,4 +1,4 @@
-import Kernel from "./Kernel"
+import Kernel from "./Kernel";
+import Config from "./Config";
 
-
-export {Kernel}
+export { Kernel, Config };

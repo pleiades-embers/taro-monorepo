@@ -1,31 +1,27 @@
 {
-    "compilerOptions": {
-      "allowSyntheticDefaultImports": true,
-      "allowJs": true,
-      "baseUrl": ".",
-      "experimentalDecorators": true,
-      "lib": ["esnext", "dom"],
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "noImplicitAny": false,
-      "noUnusedLocals": true,
-      "outDir": "dist/",
-      "preserveConstEnums": true,
-      "removeComments": false,
-      "rootDir": "./src",
-      "skipLibCheck": true,
-      "sourceMap": true,
-      "strictNullChecks": true,
-      "target": "es2015",
-      "traceResolution": false,
-      "types": ["jest","node"],
-      "declaration": true
-    },
-    "include": [
-      "./src"
-    ],
-    "exclude": [
-      "./src/__tests__"
-    ]
-  }
-  
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "outDir": "dist/",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2015",
+    "traceResolution": false,
+    "types": ["jest", "node"],
+    "declaration": true,
+    "declarationDir": "./types"
+  },
+  "include": ["./src"],
+  "exclude": ["./src/__tests__"]
+}
