@@ -37,3 +37,6 @@ export function resolveMainFilePath(p: string, ext = SCRIPT_EXT): string {
 export function resolveScriptPath(p: string): string {
   return resolveMainFilePath(p);
 }
+
+export const getModuleDefaultExport = (exports) =>
+  exports.__esModule ? exports.default : exports;

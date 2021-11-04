@@ -1,6 +1,6 @@
 import Config from "../Config";
 
-const APP_PATH = "/a/b/c";
+const APP_PATH = "./";
 
 describe("config", () => {
   let config;
@@ -14,8 +14,6 @@ describe("config", () => {
   });
 
   describe("init", () => {
-    it("", () => {
-      console.log("这里debugger 一下");
-    });
+    it("", () => {});
   });
 });

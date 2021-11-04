@@ -6,5 +6,6 @@ declare const _default: {
     JS_EXT: string[];
     TS_EXT: string[];
     SCRIPT_EXT: string[];
+    getModuleDefaultExport: (exports: any) => any;
 };
 export = _default;
