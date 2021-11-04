@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as fs from "fs-extra";
 import { IProjectConfig } from "@tarojs/taro/types/compile";
-import { resolveScriptPath } from "@tarojs/helper";
+import { resolveScriptPath, createBabelRegister } from "@tarojs/helper";
 import { CONFIG_DIR_NAME, DEFAULT_CONFIG_FILE } from "./utils/constants";
 
 interface IConfigOptions {
@@ -26,12 +26,12 @@ export default class Config {
       this.initialConfig = {};
       this.isInitSuccess = false;
     } else {
-      // createBabelRegister({
-      //   only: [
-      //     (filePath) =>
-      //       filePath.indexOf(path.join(this.appPath, CONFIG_DIR_NAME)) >= 0,
-      //   ],
-      // });
+      createBabelRegister({
+        only: [
+          (filePath) =>
+            filePath.indexOf(path.join(this.appPath, CONFIG_DIR_NAME)) >= 0,
+        ],
+      });
     }
   }
 }

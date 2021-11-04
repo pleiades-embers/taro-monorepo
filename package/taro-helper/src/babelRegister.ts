@@ -1,3 +1,4 @@
+import * as path from "path";
 export default function createBabelRegister({ only }) {
   require("@babel/register")({
     //接受条件数组，正则表达式或函数。（可选的）
@@ -17,8 +18,26 @@ export default function createBabelRegister({ only }) {
           legacy: true,
         },
       ],
-      require.resolve("@babel/plugin-proposal-object-rest-spread")
+      require.resolve("@babel/plugin-proposal-object-rest-spread"),
+      [
+        require.resolve("@babel/plugin-transform-runtime"),
+        {
+          corejs: false,
+          helpers: true,
+          regenerator: true,
+          useESModules: false,
+          version: "^7.7.7",
+          absoluteRuntime: path.resolve(
+            __dirname,
+            "..",
+            "node_modules/@babel/runtime"
+          ),
+        },
+      ],
     ],
-
+    extensions: [".jsx", ".js", ".ts", ".tsx"],
+    babelrc: false,
+    configFile: false,
+    cache: false,
   });
 }
