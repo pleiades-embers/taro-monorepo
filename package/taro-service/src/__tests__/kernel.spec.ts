@@ -8,10 +8,6 @@ describe("kernel", () => {
     appPath: APP_PATH,
   };
 
-  /**
-   *
-   */
-
   beforeAll(() => {
     kernel = new Kernel(options);
     console.log(kernel);
