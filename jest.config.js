@@ -20,7 +20,7 @@ module.exports = {
   },
   testPathIgnorePatterns: ["node_modules", "utils"],
   testMatch: ["**/__tests__/?(*.)+(spec|test).[jt]s?(x)"],
-  moduleNameMapper: {
-    "@tarojs/shared": path.join(__dirname, "./packages/shared/src"),
-  },
+  //   moduleNameMapper: {
+  //     "@tarojs/shared": path.join(__dirname, "./packages/shared/src"),
+  //   },
 };

@@ -20,34 +20,25 @@ export default class Kernel extends EventEmitter {
 
   constructor(options: IKernelOptions) {
     super();
-    this.debugger=(value) => {
-        console.log(value);
-    }
+    this.debugger = (value) => {};
     this.appPath = options.appPath || process.cwd();
     this.optsPresets = options.presets;
     this.optsPlugins = options.plugins;
     this.initHelper();
   }
   init() {
-    this.initConfig()
-    this.initPaths()
-    this.initPresetsAndPlugins()
+    this.initConfig();
+    this.initPaths();
+    this.initPresetsAndPlugins();
   }
 
-  initConfig(){
+  initConfig() {}
 
-  }
+  initPaths() {}
 
-  initPaths(){
-
-  }
-
-  initPresetsAndPlugins(){
-
-  }
+  initPresetsAndPlugins() {}
 
   initHelper() {
     this.debugger("initHelper");
-    
   }
 }
