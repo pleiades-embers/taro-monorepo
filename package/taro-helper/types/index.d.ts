@@ -1,5 +1,11 @@
-export declare const JS_EXT: string[];
-export declare const TS_EXT: string[];
-export declare const SCRIPT_EXT: string[];
-export declare function resolveMainFilePath(p: string, ext?: string[]): string;
-export declare function resolveScriptPath(p: string): string;
+import createBabelRegister from "./babelRegister";
+declare const _default: {
+    createBabelRegister: typeof createBabelRegister;
+    resolveMainFilePath(p: string, ext?: string[]): string;
+    resolveScriptPath(p: string): string;
+    JS_EXT: string[];
+    TS_EXT: string[];
+    SCRIPT_EXT: string[];
+    getModuleDefaultExport: (exports: any) => any;
+};
+export = _default;

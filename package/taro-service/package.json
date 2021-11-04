@@ -15,8 +15,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@tarojs/taro": "../taro"
+    "@tarojs/taro": "../taro",
+    "@types/fs-extra": "^9.0.13"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
