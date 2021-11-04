@@ -1,5 +1,5 @@
 import createBabelRegister from "./babelRegister";
-export declare const helper: {
+declare const _default: {
     createBabelRegister: typeof createBabelRegister;
     resolveMainFilePath(p: string, ext?: string[]): string;
     resolveScriptPath(p: string): string;
@@ -7,4 +7,4 @@ export declare const helper: {
     TS_EXT: string[];
     SCRIPT_EXT: string[];
 };
-export = helper;
+export = _default;
