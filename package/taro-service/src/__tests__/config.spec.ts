@@ -1,11 +1,11 @@
-import Config from "../Config";
+import Config from '../Config';
 
-const APP_PATH = "./";
+const APP_PATH = './';
 
-describe("config", () => {
+describe('config', () => {
   let config;
   let options: any = {
-    appPath: APP_PATH,
+    appPath: APP_PATH
   };
 
   beforeAll(() => {
@@ -13,7 +13,7 @@ describe("config", () => {
     config.init();
   });
 
-  describe("init", () => {
-    it("", () => {});
+  describe('init', () => {
+    it('', () => {});
   });
 });

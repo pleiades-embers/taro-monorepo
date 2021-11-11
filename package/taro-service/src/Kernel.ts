@@ -1,5 +1,5 @@
-import { EventEmitter } from "events";
-import { PluginItem } from "@tarojs/taro/types/compile";
+import { EventEmitter } from 'events';
+import { PluginItem } from '@tarojs/taro/types/compile';
 
 interface IKernelOptions {
   appPath: string;
@@ -20,7 +20,7 @@ export default class Kernel extends EventEmitter {
 
   constructor(options: IKernelOptions) {
     super();
-    this.debugger = (value) => {};
+    // this.debugger = (value) => {};
     this.appPath = options.appPath || process.cwd();
     this.optsPresets = options.presets;
     this.optsPlugins = options.plugins;
@@ -39,6 +39,6 @@ export default class Kernel extends EventEmitter {
   initPresetsAndPlugins() {}
 
   initHelper() {
-    this.debugger("initHelper");
+    this.debugger('initHelper');
   }
 }

@@ -1,2 +1,3 @@
 import Kernel from "./Kernel";
-export { Kernel };
+import Config from "./Config";
+export { Kernel, Config };

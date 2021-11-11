@@ -1,6 +1,6 @@
 /// <reference types="node" />
-import { EventEmitter } from "events";
-import { PluginItem } from "@tarojs/taro/types/compile";
+import { EventEmitter } from 'events';
+import { PluginItem } from '@tarojs/taro/types/compile';
 interface IKernelOptions {
     appPath: string;
     presets?: PluginItem[];

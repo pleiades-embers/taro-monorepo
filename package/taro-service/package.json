@@ -5,6 +5,7 @@
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "build":"run-s clean prod",
     "test": "jest",
     "test:dev": "jest --watch",
     "clean": "rimraf dist",
