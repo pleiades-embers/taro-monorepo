@@ -10,9 +10,5 @@
       "message": "chore(release): publish %s"
     }
   },
-  "packages": [
-    "packages/taro-service",
-    "packages/taro-cli",
-    "packages/taro"
-  ]
+  "useWorkspaces": true
 }
