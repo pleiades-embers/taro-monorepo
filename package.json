@@ -3,9 +3,6 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "bootstrap": "npm-run-all clear-all bootstrap:lerna",
-    "clear-all": "rimraf package-lock.json packages/*/node_modules packages/*/package-lock.json packages/*/yarn.lock",
-    "bootstrap:lerna": "lerna bootstrap",
     "build": "lerna run build"
   },
   "devDependencies": {
