@@ -1,20 +1,30 @@
 {
-  "extends": "../../tsconfig.root.json",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "baseUrl": ".",
-    "outDir": "dist",
+    "experimentalDecorators": true,
+    "lib": ["esnext", "dom"],
     "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "outDir": "dist/",
     "preserveConstEnums": true,
+    "removeComments": false,
     "rootDir": "./src",
     "skipLibCheck": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "./types",
-    "types": ["jest"]
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "target": "es2015",
+    "traceResolution": false,
+    "types": ["jest"],
+    "declaration": true
   },
-  "include": ["./src"],
+  "include": [
+    "./src"
+  ],
   "exclude": [
-    "./src/__tests__",
-    "./src/config"
+    "./src/__tests__"
   ]
 }

@@ -4,12 +4,14 @@
   "description": "Taro Helper",
   "main": "index.js",
   "types": "types/index.d.ts",
-  "license": "MIT",
   "scripts": {
     "build": "run-s clean prod",
-    "clean": "rimraf dist",
+    "dev": "tsc -w",
     "prod": "tsc",
-    "dev": "tsc -w"
+    "clean": "rimraf dist",
+    "prepack":"npm run build",
+    "test":"jest",
+    "test:dev":"jest --watch"
   },
   "files": [
     "index.js",
