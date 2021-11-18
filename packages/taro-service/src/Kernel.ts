@@ -1,5 +1,8 @@
 import { EventEmitter } from 'events';
-import { PluginItem } from '@tarojs/taro/types/compile';
+import { IProjectConfig, PluginItem } from '@tarojs/taro/types/compile';
+import Config from './Config';
+import { createDebug } from '@tarojs/helper';
+import * as helper from "@tarojs/helper"
 
 interface IKernelOptions {
   appPath: string;
@@ -13,6 +16,8 @@ export default class Kernel extends EventEmitter {
   isProduction: boolean;
   optsPresets: PluginItem[] | void;
   optsPlugins: PluginItem[] | void;
+  config: Config;
+  initialConfig: IProjectConfig;
   plugins: Map<string, string>;
   helper: any;
   runOpts: any;
@@ -20,25 +25,39 @@ export default class Kernel extends EventEmitter {
 
   constructor(options: IKernelOptions) {
     super();
-    // this.debugger = (value) => {};
+    this.debugger = createDebug('Taro:Kernel');
     this.appPath = options.appPath || process.cwd();
     this.optsPresets = options.presets;
     this.optsPlugins = options.plugins;
     this.initHelper();
   }
   init() {
+    this.debugger('init')
+        // 初始化配置
     this.initConfig();
     this.initPaths();
     this.initPresetsAndPlugins();
   }
 
-  initConfig() {}
+  initConfig() {
+    this.config = new Config({
+      appPath: this.appPath
+    });
+    this.initialConfig = this.config.initialConfig;
+    this.debugger('initConfig',this.initialConfig)
+  }
 
-  initPaths() {}
+  initPaths() {
+    // this.paths={
+    //   appPath: this.appPath,
+    //   nodeModulesPath:
+    // }
+  }
 
   initPresetsAndPlugins() {}
 
   initHelper() {
+    this.helper=helper
     this.debugger('initHelper');
   }
 }

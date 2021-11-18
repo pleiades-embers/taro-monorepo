@@ -40,6 +40,7 @@ export default class Config {
         ],
       });
       try {
+        // 如果 require 导包错误 则清空 initialConfig
         this.initialConfig = getModuleDefaultExport(require(this.configPath))(
           merge
         );
