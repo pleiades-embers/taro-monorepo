@@ -1,4 +1,5 @@
 import createBabelRegister from './babelRegister';
+import * as utils from './utils';
 import createDebug from 'debug';
 
 declare interface helper {
@@ -10,6 +11,8 @@ declare interface helper {
   TS_EXT: string[];
   SCRIPT_EXT: string[];
   getModuleDefaultExport: (exports: any) => any;
+  recursiveFindNodeModules(filePath: string): string;
+  NODE_MODULES: "node_modules";
 }
 declare const helper: helper;
 // @ts-ignore
