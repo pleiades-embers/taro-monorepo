@@ -1,7 +1,7 @@
-import * as path from "path";
+// import * as path from "path";
 import * as minimist from "minimist";
 
-import { Kernel } from "@tarojs/service";
+// import { Kernel } from "@tarojs/service";
 
 export default class CLI {
   appPath: string;

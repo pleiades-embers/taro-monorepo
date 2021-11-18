@@ -3,6 +3,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "test":"lerna exec --scope @tarojs/service -- yarn test",
     "bootstrap": "npm-run-all clear-all bootstrap:lerna",
     "bootstrap:lerna": "lerna bootstrap",
     "build": "lerna run build",
@@ -13,6 +14,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
     "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^27.0.2",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.6",
     "babel-jest": "^27.3.1",
@@ -23,8 +25,7 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4",
-    "@types/jest": "^27.0.2"
+    "typescript": "^4.4.4"
   },
   "dependencies": {
 
