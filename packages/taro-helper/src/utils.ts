@@ -38,5 +38,7 @@ export function resolveScriptPath(p: string): string {
   return resolveMainFilePath(p);
 }
 
+
+// 默认导出兼容获取
 export const getModuleDefaultExport = (exports) =>
   exports.__esModule ? exports.default : exports;
