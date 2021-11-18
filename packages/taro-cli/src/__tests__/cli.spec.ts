@@ -1,4 +1,4 @@
-import { Kernel } from '@tarojs/service'
+// import { Kernel } from '@tarojs/service'
 import CLI from '../cli'
 jest.mock("@tarojs/service")
 

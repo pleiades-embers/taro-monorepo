@@ -1,5 +1,5 @@
 import createBabelRegister from "./babelRegister";
-declare const _default: {
+declare interface helper{
     createBabelRegister: typeof createBabelRegister;
     resolveMainFilePath(p: string, ext?: string[]): string;
     resolveScriptPath(p: string): string;
@@ -8,4 +8,7 @@ declare const _default: {
     SCRIPT_EXT: string[];
     getModuleDefaultExport: (exports: any) => any;
 };
-export = _default;
+declare const helper: helper
+// @ts-ignore
+export = helper
+

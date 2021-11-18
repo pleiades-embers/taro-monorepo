@@ -1,7 +1,10 @@
 import createBabelRegister from "./babelRegister";
 import * as utils from "./utils";
 
-export = {
+export const helper = {
   ...utils,
   createBabelRegister,
-};
+
+}
+
+export default helper
