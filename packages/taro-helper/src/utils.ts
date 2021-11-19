@@ -72,11 +72,18 @@ export function printLog(
     console.log(typeShow.color(typeShow.name),padding,tag,padding,filePath);
   }
 }
+export function normalizePath (path: string) {
+  return path.replace(/\\/g, '/').replace(/\/{2,}/g, '/')
+}
 
 export function recursiveFindNodeModules(
   filePath: string,
   lastFindPath?: string
 ): string {
+  if(lastFindPath && (normalizePath(filePath)===normalizePath(lastFindPath))) {
+    return filePath
+  }
+
   const dirname = path.dirname(filePath);
   const workspaceRoot = findWorkspaceRoot(dirname);
   const nodeModules = path.join(workspaceRoot || dirname, 'node_modules');

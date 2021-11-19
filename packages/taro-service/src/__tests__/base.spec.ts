@@ -1,37 +1,32 @@
-import Kernel from "../Kernel"
-
-
+import Kernel from '../Kernel';
+// import * as path from "path"
 describe('config', () => {
-  let result
-  const platform = 'weapp'
-  const baseOpts={
-    _:[
-        'build'
-    ],
-    options:{
-        platform:undefined,
-        isWatch:false,
-        env:undefined,
-        blended:false,
+  const platform = 'weapp';
+  const baseOpts = {
+    _: ['build'],
+    options: {
+      platform: undefined,
+      isWatch: false,
+      env: undefined,
+      blended: false
     },
-    isHelp:false
-}
-  const opts = Object.assign({}, baseOpts)
+    isHelp: false
+  };
+  const opts = Object.assign({}, baseOpts);
   opts.options = Object.assign({}, baseOpts.options, {
-      platform,
-      isWatch: true,
-      port: 8080,
-      deviceType: undefined,
-      resetCache: false,
-      qr: false
-  })
-
-  beforeAll(() => {
-    // result = new Kernel();
-    result.init();
+    platform,
+    isWatch: true,
+    port: 8080,
+    
+    deviceType: undefined,
+    resetCache: false,
+    qr: false
   });
-
   describe('init', () => {
-    it('', () => {});
+    const result = new Kernel({
+      appPath: '',
+      // presets: [path.resolve(__dirname, '.', 'presets', 'index.js')]
+    });
+    result.init();
   });
 });

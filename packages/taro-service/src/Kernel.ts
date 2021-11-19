@@ -2,11 +2,7 @@ import { EventEmitter } from 'events';
 import { IProjectConfig, PluginItem } from '@tarojs/taro/types/compile';
 import Config from './Config';
 import * as path from 'path';
-import {
-  createDebug,
-  NODE_MODULES,
-  recursiveFindNodeModules
-} from '@tarojs/helper';
+import { createDebug, NODE_MODULES,recursiveFindNodeModules } from '@tarojs/helper';
 import * as helper from '@tarojs/helper';
 
 import { IPaths } from './utils/types';
@@ -43,8 +39,9 @@ export default class Kernel extends EventEmitter {
     this.debugger('init');
     // 初始化配置
     this.initConfig();
+
     this.initPaths();
-    this.initPresetsAndPlugins();
+    // this.initPresetsAndPlugins();
   }
 
   initConfig() {
@@ -58,16 +55,27 @@ export default class Kernel extends EventEmitter {
   initPaths() {
     this.paths = {
       appPath: this.appPath,
-      nodeModulesPath: recursiveFindNodeModules(
-        path.join(this.appPath, NODE_MODULES)
-      )
+      nodeModulesPath:recursiveFindNodeModules(path.join(this.appPath,NODE_MODULES))
     } as IPaths;
+    if (this.config.isInitSuccess) {
+      Object.assign(this.paths, {
+        configPath: this.config.configPath,
+        sourcePath: path.join(
+          this.appPath,
+          this.initialConfig.sourcePath as string
+        ),
+        outputPath: path.join(
+          this.appPath,
+          this.initialConfig.outputPath as string
+        )
+      });
+    }
+    this.debugger(`initPaths:${JSON.stringify(this.paths, null, 2)}`);
   }
-
-  initPresetsAndPlugins() {}
-
   initHelper() {
     this.helper = helper;
     this.debugger('initHelper');
   }
+
+  initPresetsAndPlugins() {}
 }
