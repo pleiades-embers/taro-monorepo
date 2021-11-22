@@ -1,5 +1,5 @@
 import Kernel from '../Kernel';
-// import * as path from "path"
+import * as path from "path"
 describe('config', () => {
   const platform = 'weapp';
   const baseOpts = {
@@ -17,7 +17,7 @@ describe('config', () => {
     platform,
     isWatch: true,
     port: 8080,
-    
+
     deviceType: undefined,
     resetCache: false,
     qr: false
@@ -25,7 +25,7 @@ describe('config', () => {
   describe('init', () => {
     const result = new Kernel({
       appPath: '',
-      // presets: [path.resolve(__dirname, '.', 'presets', 'index.js')]
+      presets: [path.resolve(__dirname, '.', 'presets', 'index.js')]
     });
     result.init();
   });

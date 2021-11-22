@@ -6,6 +6,7 @@ import { createDebug, NODE_MODULES,recursiveFindNodeModules } from '@tarojs/help
 import * as helper from '@tarojs/helper';
 
 import { IPaths } from './utils/types';
+import { mergePlugins } from './utils';
 
 interface IKernelOptions {
   appPath: string;
@@ -39,9 +40,8 @@ export default class Kernel extends EventEmitter {
     this.debugger('init');
     // 初始化配置
     this.initConfig();
-
     this.initPaths();
-    // this.initPresetsAndPlugins();
+    this.initPresetsAndPlugins();
   }
 
   initConfig() {
@@ -77,5 +77,11 @@ export default class Kernel extends EventEmitter {
     this.debugger('initHelper');
   }
 
-  initPresetsAndPlugins() {}
+  initPresetsAndPlugins() {
+    const initialConfig = this.initialConfig;
+    const allConfigPresets=mergePlugins(this.optsPresets||[],initialConfig.presets||[])()
+    const allConfigPlugins=mergePlugins(this.optsPlugins||[],initialConfig.plugins||[])()
+    this.debugger('initPresetsAndPlugins',allConfigPresets,allConfigPlugins)
+
+  }
 }
