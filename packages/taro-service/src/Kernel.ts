@@ -123,11 +123,11 @@ export default class Kernel extends EventEmitter {
   }
   initPreset(preset: IPreset) {
     this.debugger('initPreset', preset);
-    const { id, path, opts, apply } = preset;
-    const pluginCtx = this.initPluginCtx({ id, path, ctx: this });
+    // const { id, path, opts, apply } = preset;
+    // const pluginCtx = this.initPluginCtx({ id, path, ctx: this });
   }
 
-  initPluginCtx({ id, path, ctx }: { id: string; path: string; ctx: Kernel }) {
+  // initPluginCtx({ id, path, ctx }: { id: string; path: string; ctx: Kernel }) {
     // const pluginCtx = new Plugin({id,path,ctx})
-  }
+  // }
 }

@@ -26,7 +26,8 @@ describe('config', () => {
       appPath: '',
       presets: [path.resolve(__dirname, '.', 'presets', 'index.js')]
     });
-    result.init();
+    console.log(result);
+    
     it("should",()=>{
       
     })
