@@ -39,18 +39,35 @@ export default class Plugin {
     this.register(command);
   }
 
-  registerPlatform(platform:IPlatform) {
-    if(this.ctx.platforms.has(platform.name)){
-        throw new Error(`适配平台 ${platform.name} 已存在`);
+  registerPlatform(platform: IPlatform) {
+    if (this.ctx.platforms.has(platform.name)) {
+      throw new Error(`适配平台 ${platform.name} 已存在`);
     }
-    addPlatforms(platform.name)
-    this.ctx.platforms.set(platform.name,platform)
+    addPlatforms(platform.name);
+    this.ctx.platforms.set(platform.name, platform);
     this.register(platform);
   }
-
-  registerMethod(...args){
+  addPluginOptsSchema(schema) {
+    this.optsSchema = schema;
   }
-
 }
 
+// function processArgs(args) {
+//   let name, fn;
 
+//   if (!args.length) {
+//     throw new Error('参数为空');
+//   } else if (args.length === 1) {
+//     if (typeof args[0] === 'string') {
+//       name = args[0];
+//     } else {
+//       name = args[0].name;
+//       fn = args[0].fn;
+//     }
+//   } else {
+//     name = args[0];
+//     fn = args[1];
+//   }
+
+//   return { name, fn };
+// }
