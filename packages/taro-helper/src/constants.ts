@@ -1,5 +1,7 @@
 import chalk from 'chalk';
 
+export const PLATFORMS = global['PLATFORMS'] = global['PLATFORMS'] || {}
+
 export const enum processTypeEnum {
   START = 'start',
   CREATE = 'create',

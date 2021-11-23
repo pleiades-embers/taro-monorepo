@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "build":"run-s clean prod",
+    "build": "run-s clean prod",
     "test": "jest",
     "test:dev": "jest --watch",
     "clean": "rimraf dist",
@@ -20,6 +20,7 @@
     "@types/fs-extra": "^9.0.13"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "resolve": "^1.20.0"
   }
 }

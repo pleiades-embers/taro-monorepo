@@ -17,7 +17,6 @@ describe('config', () => {
     platform,
     isWatch: true,
     port: 8080,
-
     deviceType: undefined,
     resetCache: false,
     qr: false
@@ -28,5 +27,8 @@ describe('config', () => {
       presets: [path.resolve(__dirname, '.', 'presets', 'index.js')]
     });
     result.init();
+    it("should",()=>{
+      
+    })
   });
 });

@@ -3,3 +3,9 @@ export const DEFAULT_CONFIG_FILE = "index";
 
 export const PRESET_PREFIX = "@tarojs/preset-";
 export const PLUGIN_PREFIX = "@tarojs/plugin-";
+
+
+export enum PluginType {
+    Preset='preset',
+    Plugin='plugin',
+}

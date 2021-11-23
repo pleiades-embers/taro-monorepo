@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as findWorkspaceRoot from 'find-yarn-workspace-root';
 import chalk from 'chalk';
 
-import { processTypeEnum, processTypeMap } from './constants';
+import { PLATFORMS, processTypeEnum, processTypeMap } from './constants';
 
 export const JS_EXT: string[] = ['.js', '.jsx'];
 export const TS_EXT: string[] = ['.ts', '.tsx'];
@@ -95,4 +95,12 @@ export function recursiveFindNodeModules(
     return nodeModules;
   }
   return recursiveFindNodeModules(dirname, filePath);
+}
+
+
+export function addPlatforms(platform: string){
+  const upperPlatform=platform.toLocaleUpperCase()
+  if(PLATFORMS[upperPlatform]){
+    return PLATFORMS[upperPlatform]=platform
+  }
 }

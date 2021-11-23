@@ -18,6 +18,7 @@ declare interface helper {
   NODE_MODULES: 'node_modules';
   getModuleDefaultExport: (exports: any) => any;
   recursiveFindNodeModules(filePath: string): string;
+  addPlatforms(platform: string): void;
 }
 declare const helper: helper;
 // @ts-ignore

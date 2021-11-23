@@ -6,3 +6,4 @@ export declare function resolveMainFilePath(p: string, ext?: string[]): string;
 export declare function resolveScriptPath(p: string): string;
 export declare const getModuleDefaultExport: (exports: any) => any;
 export declare function recursiveFindNodeModules(filePath: string): string;
+export declare function addPlatforms(platform: string): void;
