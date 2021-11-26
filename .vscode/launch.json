@@ -9,6 +9,7 @@
       "name": "vscode-jest-tests",
       "request": "launch",
       "args": ["--runInBand"],
+      "env":{"DEBUG":"Taro:*"},
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",

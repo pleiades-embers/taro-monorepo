@@ -127,8 +127,23 @@ export default class Kernel extends EventEmitter {
     // const { id, path, opts, apply } = preset;
     // const pluginCtx = this.initPluginCtx({ id, path, ctx: this });
   }
+  setRunOpts(opts){
+    this.runOpts=opts
+  }
+  run(args:string|{command:string,opts?:any}){
+    let command
+    let opts
+    if (typeof args === 'string') {
+      command = args
+    } else {
+      command = args.command
+      opts = args.opts
+    }
+    this.debugger('command:run')
+    this.debugger(`command:run:name:${command}`)
+    this.debugger('command:runOpts')
+    this.debugger(`command:runOpts:${JSON.stringify(opts, null, 2)}`)
+    this.setRunOpts(opts)
+  }
 
-  // initPluginCtx({ id, path, ctx }: { id: string; path: string; ctx: Kernel }) {
-    // const pluginCtx = new Plugin({id,path,ctx})
-  // }
 }
