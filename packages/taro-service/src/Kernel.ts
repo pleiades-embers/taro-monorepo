@@ -44,6 +44,7 @@ export default class Kernel extends EventEmitter {
     this.appPath = options.appPath || process.cwd();
     this.optsPresets = options.presets;
     this.optsPlugins = options.plugins;
+    this.commands=new Map()
     this.initHelper();
   }
   init() {
