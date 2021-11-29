@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events';
 import { IProjectConfig, PluginItem } from '@tarojs/taro/types/compile';
+import { AsyncSeriesWaterfallHook } from 'tapable';
 import Config from './Config';
 import * as path from 'path';
 import {
@@ -10,7 +11,14 @@ import {
 } from '@tarojs/helper';
 import * as helper from '@tarojs/helper';
 
-import { ICommand, IHook, IPaths, IPlatform, IPlugin, IPreset } from './utils/types';
+import {
+  ICommand,
+  IHook,
+  IPaths,
+  IPlatform,
+  IPlugin,
+  IPreset
+} from './utils/types';
 import { mergePlugins, resolvePresetsOrPlugins } from './utils';
 import { PluginType } from './utils/constants';
 
@@ -30,9 +38,9 @@ export default class Kernel extends EventEmitter {
   initialConfig: IProjectConfig;
   paths: IPaths;
   extraPlugins: IPlugin[];
-  hooks: Map<string, IHook[]>
-  commands: Map<string, ICommand>
-  platforms: Map<string, IPlatform>
+  hooks: Map<string, IHook[]>;
+  commands: Map<string, ICommand>;
+  platforms: Map<string, IPlatform>;
   plugins: Map<string, string>;
   helper: any;
   runOpts: any;
@@ -44,7 +52,8 @@ export default class Kernel extends EventEmitter {
     this.appPath = options.appPath || process.cwd();
     this.optsPresets = options.presets;
     this.optsPlugins = options.plugins;
-    this.commands=new Map()
+    this.commands = new Map();
+    this.hooks = new Map();
     this.initHelper();
   }
   init() {
@@ -110,6 +119,7 @@ export default class Kernel extends EventEmitter {
       });
     this.plugins = new Map();
     this.extraPlugins = [];
+    this.resolvePresets(allConfigPresets);
   }
 
   resolvePresets(presets) {
@@ -118,32 +128,86 @@ export default class Kernel extends EventEmitter {
       presets,
       PluginType.Preset
     );
+
     while (allPresets.length) {
       this.initPreset(allPresets.shift()!);
     }
   }
   initPreset(preset: IPreset) {
     this.debugger('initPreset', preset);
-    // const { id, path, opts, apply } = preset;
-    // const pluginCtx = this.initPluginCtx({ id, path, ctx: this });
+    const { id, path, opts, apply } = preset;
+    const pluginCtx = this.initPluginCtx({ id, path, ctx: this });
   }
-  setRunOpts(opts){
-    this.runOpts=opts
-  }
-  run(args:string|{command:string,opts?:any}){
-    let command
-    let opts
-    if (typeof args === 'string') {
-      command = args
-    } else {
-      command = args.command
-      opts = args.opts
-    }
-    this.debugger('command:run')
-    this.debugger(`command:run:name:${command}`)
-    this.debugger('command:runOpts')
-    this.debugger(`command:runOpts:${JSON.stringify(opts, null, 2)}`)
-    this.setRunOpts(opts)
+  initPluginCtx({ id, path, ctx }: { id: string; path: string; ctx: Kernel }) {
+    
   }
 
+  setRunOpts(opts) {
+    this.runOpts = opts;
+  }
+  async run(args: string | { command: string; opts?: any }) {
+    let command;
+    let opts;
+    if (typeof args === 'string') {
+      command = args;
+    } else {
+      command = args.command;
+      opts = args.opts;
+    }
+    this.debugger('command:run');
+    this.debugger(`command:run:name:${command}`);
+    this.debugger('command:runOpts');
+    this.debugger(`command:runOpts:${JSON.stringify(opts, null, 2)}`);
+    this.setRunOpts(opts);
+    await this.init();
+    this.debugger('command:onStart');
+    await this.applyPlugins('onStart');
+    console.log(this.commands.has(command), '💥');
+
+    if (!this.commands.has(command)) {
+      throw new Error(`${command} 命令不存在`);
+    }
+    if (opts?.isHelp) {
+      console.log(command, '💥');
+    }
+
+    await this.applyPlugins({
+      name: 'modifyRunnerOpts',
+      opts: {
+        opts: opts?.config
+      }
+    });
+    await this.applyPlugins({
+      name: command,
+      opts
+    });
+  }
+
+  async applyPlugins(
+    args: string | { name: string; initialVal?: any; opts?: any }
+  ) {
+    let name;
+    let initialVal;
+    let opts;
+    if (typeof args === 'string') {
+      name = args;
+    } else {
+      name = args.name;
+      initialVal = args.initialVal;
+      opts = args.opts;
+    }
+    this.debugger('applyPlugins');
+    this.debugger(`applyPlugins:name:${name}`);
+    this.debugger(`applyPlugins:initialVal:${initialVal}`);
+    this.debugger(`applyPlugins:opts:${opts}`);
+    if (typeof name !== 'string') {
+      throw new Error('调用失败, 未传入正确的名称');
+    }
+    const hooks = this.hooks.get(name) || [];
+
+    const waterfall = new AsyncSeriesWaterfallHook(['arg']);
+    if (hooks.length) {
+    }
+    return await waterfall.promise(initialVal);
+  }
 }

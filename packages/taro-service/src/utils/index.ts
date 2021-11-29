@@ -6,15 +6,19 @@ import { PluginType } from './constants';
 import { IPlugin } from './types';
 import { getModuleDefaultExport } from '@tarojs/helper';
 
+//检查包是否未绝对路径
 export const isNpmPkg: (name: string) => boolean = (name) =>
   !/^(\.|\/)/.test(name);
 
 export function getPLuginPath(pluginPath: string) {
   if (isNpmPkg(pluginPath) || path.isAbsolute(pluginPath)) return pluginPath;
-  throw new Error('plugin 和 presets 配置必须为绝对路径包名');
+  throw new Error('plugin 和 presets 配置必须为绝对路径或者包名');
 }
 
+
+
 export function convertPluginsToObject(items: PluginItem[]) {
+  
   return () => {
     const obj = {};
     if (Array.isArray(items)) {

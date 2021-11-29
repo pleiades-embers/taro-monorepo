@@ -31,8 +31,10 @@
     "@types/chalk": "^2.2.0",
     "@types/debug": "^4.1.7",
     "@types/lodash": "^4.14.177",
+    "@types/tapable": "^2.2.2",
     "chalk": "^4.1.2",
     "debug": "^4.3.2",
-    "find-yarn-workspace-root": "^2.0.0"
+    "find-yarn-workspace-root": "^2.0.0",
+    "tapable": "^2.2.1"
   }
 }
