@@ -1,23 +1,23 @@
 module.exports = {
-  'parser': '@typescript-eslint/parser',
-  'plugins': ['@typescript-eslint', 'jest', 'react'],
-  'extends': [
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'jest', 'react'],
+  extends: [
     'standard',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    "plugin:jest/recommended"
+    'plugin:jest/recommended'
   ],
-  'rules': {
+  rules: {
     'no-use-before-define': 0,
     'no-unused-vars': 'off',
-    'camelcase': 0,
+    camelcase: 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    "indent": "off",
+    indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_', 'args': 'after-used', }],
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', args: 'after-used' }],
     '@typescript-eslint/no-empty-function': 0,
-    '@typescript-eslint/no-use-before-define': ['warn', { 'functions': false, 'classes': false }],
+    '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false }],
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-var-requires': 0,
@@ -34,32 +34,32 @@ module.exports = {
     'react/jsx-uses-vars': 'warn',
     'react/prop-types': 0,
     'react/no-find-dom-node': 0,
-    'no-unused-expressions': 0,
+    'no-unused-expressions': 0
     // 'camelcase': ['error', {allow: ['^internal_', '^unstable_']}]
   },
-  'env': {
+  env: {
     'jest/globals': true,
-    'browser': true,
-    'node': true,
-    'es6': true,
+    browser: true,
+    node: true,
+    es6: true
   },
-  'globals': {
-    'testRule': 'readonly',
-    'wx': 'readonly',
-    'qq': 'readonly',
-    'tt': 'readonly',
-    'swan': 'readonly',
-    'my': 'readonly',
-    'getCurrentPages': 'readonly',
-    'getApp': 'readonly',
-    'requirePlugin': 'readonly',
-    'jd': 'readonly',
-    'ks': 'readonly',
-    'LOCATION_APIKEY': 'readonly'
+  globals: {
+    testRule: 'readonly',
+    wx: 'readonly',
+    qq: 'readonly',
+    tt: 'readonly',
+    swan: 'readonly',
+    my: 'readonly',
+    getCurrentPages: 'readonly',
+    getApp: 'readonly',
+    requirePlugin: 'readonly',
+    jd: 'readonly',
+    ks: 'readonly',
+    LOCATION_APIKEY: 'readonly'
   },
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
     }
   }
 }
