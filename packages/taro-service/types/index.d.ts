@@ -1,5 +1,4 @@
 import { ICommand } from "../src/utils/types";
-
 export declare interface IPluginContext {
   /**
    * 获取当前执行命令所带的参数

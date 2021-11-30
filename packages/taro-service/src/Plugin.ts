@@ -50,24 +50,37 @@ export default class Plugin {
   addPluginOptsSchema(schema) {
     this.optsSchema = schema;
   }
+
+  registerMethod(...args){
+    const {name,fn}=processArgs(args)
+    const methods=this.ctx.methods.get(name)||[]
+    methods.push(fn||function(fn:(...args:any[])=>void) {
+      this.register({
+        name,
+        fn
+      })
+    }.bind(this))
+    this.ctx.methods.set(name,methods)
+  }
+
 }
 
-// function processArgs(args) {
-//   let name, fn;
+function processArgs(args) {
+  let name, fn;
 
-//   if (!args.length) {
-//     throw new Error('参数为空');
-//   } else if (args.length === 1) {
-//     if (typeof args[0] === 'string') {
-//       name = args[0];
-//     } else {
-//       name = args[0].name;
-//       fn = args[0].fn;
-//     }
-//   } else {
-//     name = args[0];
-//     fn = args[1];
-//   }
+  if (!args.length) {
+    throw new Error('参数为空');
+  } else if (args.length === 1) {
+    if (typeof args[0] === 'string') {
+      name = args[0];
+    } else {
+      name = args[0].name;
+      fn = args[0].fn;
+    }
+  } else {
+    name = args[0];
+    fn = args[1];
+  }
 
-//   return { name, fn };
-// }
+  return { name, fn };
+}

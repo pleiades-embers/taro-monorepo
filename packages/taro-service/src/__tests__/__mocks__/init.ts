@@ -13,8 +13,7 @@ export default (ctx: IPluginContext) => {
       '-h, --help': 'output usage information'
     },
     async fn(){
-        console.log('执行init'+'🈸');
-        
+      console.log('执行init'+'🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸🈸'); 
     }
   })
 };

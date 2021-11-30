@@ -3,6 +3,7 @@ import * as path from 'path';
 import { merge } from 'lodash';
 import * as resolve from 'resolve';
 import { PluginType } from './constants';
+import chalk from 'chalk';
 import { IPlugin } from './types';
 import { getModuleDefaultExport } from '@tarojs/helper';
 
@@ -18,7 +19,6 @@ export function getPLuginPath(pluginPath: string) {
 
 
 export function convertPluginsToObject(items: PluginItem[]) {
-  
   return () => {
     const obj = {};
     if (Array.isArray(items)) {
@@ -50,10 +50,22 @@ export function resolvePresetsOrPlugins(
   type: PluginType
 ): IPlugin[] {
   return Object.keys(args).map((item) => {
-    const fPath = resolve.sync(item, {
-      basedir: root,
-      extensions: ['js', '.ts']
-    });
+    let fPath 
+    try {
+      fPath = resolve.sync(item, {
+        basedir: root,
+        extensions: ['.js', '.ts']
+      })
+    }catch (err) {
+      if (args[item]?.backup) {
+        // 如果项目中没有，可以使用 CLI 中的插件
+        fPath = args[item].backup
+      } else {
+        console.log(chalk.red(`找不到依赖 "${item}"，请先在项目中安装`))
+        process.exit(1)
+      }
+    }
+
     return {
       id: fPath,
       path: fPath,

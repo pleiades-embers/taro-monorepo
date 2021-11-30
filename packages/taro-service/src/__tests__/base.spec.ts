@@ -9,7 +9,7 @@ describe('config', () => {
 
     it('run', () => {
       kernel.run({
-        command: 'init',
+        name: 'init',
         opts: {
           appPath: '',
           projectName: 'temp'
@@ -18,7 +18,3 @@ describe('config', () => {
     });
   });
 });
-
-
-
-
