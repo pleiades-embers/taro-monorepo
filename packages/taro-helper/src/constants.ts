@@ -1,6 +1,6 @@
-import chalk from 'chalk';
+import chalk from 'chalk'
 
-export const PLATFORMS = global['PLATFORMS'] = global['PLATFORMS'] || {}
+export const PLATFORMS = (global.PLATFORMS = global.PLATFORMS || {})
 
 export const enum processTypeEnum {
   START = 'start',
@@ -14,10 +14,12 @@ export const enum processTypeEnum {
   WARNING = 'warning',
   UNLINK = 'unlink',
   REFERENCE = 'reference',
-  REMIND = 'remind'
+  REMIND = 'remind',
 }
 
-export interface IProcessTypeMap {}
+export interface IProcessTypeMap {
+
+}
 
 export const processTypeMap: IProcessTypeMap = {
   [processTypeEnum.CREATE]: {
@@ -68,7 +70,6 @@ export const processTypeMap: IProcessTypeMap = {
     name: '提示',
     color: 'green'
   }
-};
-
+}
 
 export const NODE_MODULES = 'node_modules'

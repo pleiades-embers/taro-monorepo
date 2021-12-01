@@ -17,6 +17,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', args: 'after-used' }],
     '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/no-empty-interface': 0,
     '@typescript-eslint/no-use-before-define': ['warn', { functions: false, classes: false }],
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-explicit-any': 0,
@@ -34,8 +35,8 @@ module.exports = {
     'react/jsx-uses-vars': 'warn',
     'react/prop-types': 0,
     'react/no-find-dom-node': 0,
-    'no-unused-expressions': 0
-    // 'camelcase': ['error', {allow: ['^internal_', '^unstable_']}]
+    'no-unused-expressions': 0,
+    'spaced-comment': 0
   },
   env: {
     'jest/globals': true,
