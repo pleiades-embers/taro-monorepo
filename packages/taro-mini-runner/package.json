@@ -1,0 +1,18 @@
+{
+  "name": "taro-mini-runner",
+  "version": "1.0.0",
+  "description": "暴露给 `@tarojs/cli` 的小程序 Webpack 启动器。",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run prod",
+    "dev": "npm run mv:comp && tsc -w",
+    "mv:comp": "node ./mv-comp.js",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.65.0"
+  }
+}

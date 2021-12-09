@@ -1,0 +1,21 @@
+{
+  "name": "@tarojs/runner-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "dev": "tsc -w --pretty"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "scss-bundle": "^3.1.2"
+  }
+}

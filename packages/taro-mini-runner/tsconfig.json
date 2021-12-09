@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "removeComments": false,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "./src",
+    "module": "commonjs",
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src"],
+  "exclude": ["./src/__tests__", "./src/template/comp.ts", "./src/quickapp", "./src/loaders/quickappStyleLoader.ts"]
+}

@@ -1,58 +1,57 @@
-import { PluginType } from './constants';
+import { PluginType } from './constants'
 
 export interface IPaths {
   /**
    * 当前命令执行的目录，如果是 build 命令则为当前项目路径
    */
-  appPath: string;
+  appPath: string
   /**
    * 当前项目配置目录，如果 init 命令，则没有此路径
    */
-  configPath: string;
+  configPath: string
   /**
    * 当前项目源码路径
    */
-  sourcePath: string;
+  sourcePath: string
   /**
    * 当前项目输出代码路径
    */
-  outputPath: string;
+  outputPath: string
   /**
    * 当前项目所用的 node_modules 路径
    */
-  nodeModulesPath: string;
+  nodeModulesPath: string
 }
 
-export type Func = (...args: any[]) => any;
+export type Func = (...args: any[]) => any
 
 export type IPluginsObject = Record<string, Record<any, any> | null>
 
 export interface IPlugin {
-  id: string;
-  path: string;
-  opts: any;
-  type: PluginType;
-  apply: Func;
+  id: string
+  path: string
+  opts: any
+  type: PluginType
+  apply: Func
 }
 
-export type IPreset = IPlugin;
+export type IPreset = IPlugin
 
 export interface IHook {
-  name: string;
-  plugin?: string;
-  fn: Func;
-  before?: string;
-  stage?: number;
+  name: string
+  plugin?: string
+  fn: Func
+  before?: string
+  stage?: number
 }
 
 export interface ICommand extends IHook {
-  alias?: string;
+  alias?: string
   optionsMap?: {
-    [key: string]: string;
-  };
-  synopsisList?: string[];
+    [key: string]: string
+  }
+  synopsisList?: string[]
 }
-
 
 export interface IPlatform extends IHook {
   useConfigName?: string
