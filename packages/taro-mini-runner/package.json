@@ -7,12 +7,14 @@
     "build": "npm run clean && npm run prod",
     "dev": "npm run mv:comp && tsc -w",
     "mv:comp": "node ./mv-comp.js",
+    "prod": "tsc && npm run mv:comp",
     "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^5.65.0"
+    "webpack": "^5.65.0",
+    "webpack-merge": "^5.8.0"
   }
 }

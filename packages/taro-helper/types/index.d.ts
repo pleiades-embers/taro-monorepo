@@ -14,8 +14,10 @@ declare interface helper {
   resolveScriptPath(p: string): string;
   JS_EXT: string[];
   TS_EXT: string[];
+  PLATFORMS: any;
   SCRIPT_EXT: string[];
   NODE_MODULES: 'node_modules';
+  taroJsComponents: "@tarojs/components";
   getModuleDefaultExport: (exports: any) => any;
   recursiveFindNodeModules(filePath: string): string;
   addPlatforms(platform: string): void;

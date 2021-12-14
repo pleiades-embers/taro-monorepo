@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`partial should partial 1`] = `"hello fred"`;
+
+exports[`partial should partial 2`] = `"fred hi"`;

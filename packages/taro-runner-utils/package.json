@@ -2,7 +2,8 @@
   "name": "@tarojs/runner-utils",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types":"types/index.d.ts",
   "files": [
     "index.js",
     "lib"

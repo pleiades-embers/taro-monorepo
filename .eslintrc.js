@@ -36,7 +36,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/no-find-dom-node': 0,
     'no-unused-expressions': 0,
-    'spaced-comment': 0
+    'spaced-comment': 0,
+    quotes: 0
   },
   env: {
     'jest/globals': true,

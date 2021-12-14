@@ -73,3 +73,5 @@ export const processTypeMap: IProcessTypeMap = {
 }
 
 export const NODE_MODULES = 'node_modules'
+
+export const taroJsComponents = '@tarojs/components'

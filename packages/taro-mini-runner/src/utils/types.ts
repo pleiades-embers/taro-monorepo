@@ -42,4 +42,10 @@ export interface IBuildConfig extends IProjectBaseConfig, IMiniAppConfig {
   taroComponentsPath?: string
   blended?: boolean
   isBuildNativeComp?: boolean
+  prerender?: any
+  template: any
+}
+
+export interface IOption {
+  [key: string]: any
 }

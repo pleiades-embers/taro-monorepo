@@ -1,5 +1,5 @@
-const { jsWithTs: tsjPreset } = require('ts-jest/presets');
-const path = require('path');
+const { jsWithTs: tsjPreset } = require('ts-jest/presets')
+const path = require('path')
 
 module.exports = {
   testEnvironment: 'node',
@@ -23,4 +23,4 @@ module.exports = {
   moduleNameMapper: {
     '@tarojs/shared': path.join(__dirname, './packages/shared/src')
   }
-};
+}
