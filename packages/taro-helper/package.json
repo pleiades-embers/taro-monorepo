@@ -9,9 +9,9 @@
     "dev": "tsc -w",
     "prod": "tsc",
     "clean": "rimraf dist",
-    "prepack":"npm run build",
-    "test":"jest",
-    "test:dev":"jest --watch"
+    "prepack": "npm run build",
+    "test": "jest",
+    "test:dev": "jest --watch"
   },
   "files": [
     "index.js",
@@ -24,5 +24,8 @@
     "@babel/plugin-transform-runtime": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.10"
   }
 }

@@ -4,19 +4,17 @@ import CopyPlugin from 'copy-webpack-plugin'
 import { partial } from 'lodash'
 import path from 'path'
 
-const getPlugin = (plugin:any, args:IOption[]) => {
+const getPlugin = (plugin: any, args: IOption[]) => {
   return {
-    plugin, args
+    plugin,
+    args
   }
 }
 
 export const getCopyWebpackPlugin = ({
   copy,
   appPath
-}): {
-  copy: ICopyOptions
-  appPath: string
-} => {
+}) => {
   const args = [
     copy.patterns.map(({ from, to, ...extra }) => {
       return {
@@ -28,6 +26,7 @@ export const getCopyWebpackPlugin = ({
     }),
     copy.options
   ]
+  console.log(args)
 
-  return partial(getPlugin, CopyPlugin)(args)
+  // return partial(getPlugin, CopyPlugin)(args)
 }

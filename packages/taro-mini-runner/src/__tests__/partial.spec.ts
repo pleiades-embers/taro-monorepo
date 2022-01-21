@@ -13,7 +13,7 @@ describe('partial', () => {
 
     expect(sayHelloTo('fred')).toMatchInlineSnapshot(`"hello fred"`)
     expect(greetFred('hi')).toMatchInlineSnapshot(`"fred hi"`)
-    const copy = {}
-    expect(getCopyWebpackPlugin({ copy, appPath: 'react' })).toMatchInlineSnapshot()
+
+    getCopyWebpackPlugin({ copy: {}, appPath: "" })
   })
 })

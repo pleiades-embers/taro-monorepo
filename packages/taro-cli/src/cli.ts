@@ -1,32 +1,32 @@
 // import * as path from "path";
-import * as minimist from "minimist";
+import * as minimist from "minimist"
 
 // import { Kernel } from "@tarojs/service";
 
 export default class CLI {
-  appPath: string;
+  appPath: string
 
-  constructor(appPath: string) {
-    this.appPath = appPath || process.cwd();
+  constructor (appPath: string) {
+    this.appPath = appPath || process.cwd()
   }
 
-  run() {
-    this.parseArgs();
+  run () {
+    this.parseArgs()
   }
 
-  parseArgs() {
+  parseArgs () {
     const args = minimist(process.argv.slice(2), {
       alias: {
         version: ["v"],
         help: ["h"],
         port: ["p"],
-        resetCache: ["reset-cache"],
+        resetCache: ["reset-cache"]
       },
-      boolean: ["version", "help"],
-    });
+      boolean: ["version", "help"]
+    })
     // 文件名称
-    const _ = args._;
-    const command = _[0];
+    const _ = args._
+    const command = _[0]
     if (command) {
       // const kernel = new Kernel({
       //   appPath: this.appPath,
